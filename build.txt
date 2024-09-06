@@ -1,0 +1,10 @@
+sudo docker buildx build --platform linux/amd64 \
+  --build-arg NEXT_PUBLIC_LANGFUSE_CLOUD_REGION=${NEXT_PUBLIC_LANGFUSE_CLOUD_REGION} \
+  -t langshark-server:buildx5 \
+  -f ./web/Dockerfile .
+  
+aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 663739179764.dkr.ecr.ap-northeast-2.amazonaws.com
+
+docker tag langshark-server:buildx5 663739179764.dkr.ecr.ap-northeast-2.amazonaws.com/langshark-server:buildx5
+
+docker push 663739179764.dkr.ecr.ap-northeast-2.amazonaws.com/langshark-server:buildx5
