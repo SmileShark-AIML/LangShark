@@ -8,6 +8,16 @@
 2. [조직을 설정합니다.](../getstarted/undefined.md)
 3. [프로젝트를 설정하여 API키를 생성합니다.](../getstarted/undefined-1.md)
 
+{% hint style="info" %}
+계정이 없다면 다음 Example Account를 사용해보세요.
+
+ID: example@example.com
+
+Password: exampleexample
+
+[https://langshark.smileshark.help/](https://langshark.smileshark.help/)
+{% endhint %}
+
 #### LangShark를 사용하여 첫번째 로그를 확인해보세요.
 
 LangShark는 모든 LLM통합을 위한 Native Python Decorator,
@@ -79,3 +89,5 @@ soon
 ```
 {% endtab %}
 {% endtabs %}
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
