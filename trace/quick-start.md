@@ -80,6 +80,34 @@ groq_invoke()
 
 {% tab title="LangChain" %}
 ```python
+pip install langfuse langchain_groq
+```
+
+```python
+import os
+
+os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+```
+
+```python
+from langfuse.callback import CallbackHandler
+from langchain_groq import ChatGroq
+
+callback_handler = CallbackHandler()
+
+groq = ChatGroq(
+    model="llama-3.1-70b-versatile",
+    temperature=0.0,
+    max_retries=2,
+    api_key="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",
+    max_tokens=2000
+)
+
+question = "인공지능에 대해 설명해주세요"
+
+response = groq.invoke(question, config={"callbacks":[callback_handler]}).content
 ```
 {% endtab %}
 
