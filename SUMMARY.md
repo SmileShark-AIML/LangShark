@@ -12,12 +12,12 @@
 
 * [소개](trace/undefined.md)
 * [Quick-Start](trace/quick-start.md)
-* [유저](trace/undefined-1.md)
-* [메타데이터](trace/undefined-2.md)
-* [태그](trace/undefined-3.md)
-* [로깅 레벨](trace/undefined-4.md)
-* [샘플링](trace/undefined-5.md)
-* [세션](trace/undefined-6.md)
+* [세션](trace/undefined-1.md)
+* [유저](trace/undefined-2.md)
+* [메타데이터](trace/undefined-3.md)
+* [태그](trace/undefined-4.md)
+* [로깅 레벨](trace/undefined-5.md)
+* [샘플링](trace/undefined-6.md)
 
 ## 개발 <a href="#development" id="development"></a>
 

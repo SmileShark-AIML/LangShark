@@ -1,18 +1,12 @@
-# 로깅 레벨
+# 태그
 
-트레이스에는 많은 관찰(Observation)이 있을 수 있습니다. 때문에 트레이스의 디테일 정도를 제어하고 오류와 경고를 강조하는 속성을 활용하여 중요성을 구분할 수 있습니다.
-
-사용할 수 있는 레벨은 `DEBUG`, `DEFAULT`, `WARNING`, `ERROR` 가 있습니다.
-
-레벨 외에도 추가적인 맥락을 제공하기 위해 `statusMessage` 를 포함할 수도 있습니다.
-
-LangChain 통합시에는, 자동으로 설정되기 때문에 이를 설정할 필요는 없습니다.
+태그를 활용하면 트레이스를 분류하고 필터링 할 수 있습니다. 태그는 문자열로 구성되며 한개의 트레이스에는 여러개의 태그를 설정할 수 있습니다.
 
 ### 예제
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain 사용시 자동으로 설정됩니다.</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Python Decorator" %}
@@ -36,11 +30,9 @@ import json
 @observe()
 def generation():
 
-    # 여기에 로깅레벨을 설정할 수 있습니다.
-    # !주의! update_current_trace가 아닙니다!
-    langfuse_context.update_current_observation(
-        level="WARNING",
-        status_message="This is a warning"
+    # 여기에 태그를 설정할 수 있습니다.
+    langfuse_context.update_current_trace(
+        tags=["tag-1", "tag-2"]
     )
 
     api_key = "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"
@@ -73,7 +65,40 @@ groq_invoke()
 {% endtab %}
 
 {% tab title="LangChain" %}
-LangChain 사용시 자동으로 로깅레벨을 설정합니다.
+```python
+pip install -q langfuse langchain langchain_groq
+```
+
+```python
+import os
+
+os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+```
+
+```python
+from langfuse.callback import CallbackHandler
+
+callback_handler = CallbackHandler(
+    tags=["tag-1", "tag-2"]
+)
+```
+
+```python
+from langchain_groq import ChatGroq
+
+groq = ChatGroq(
+    model="llama-3.1-70b-versatile",
+    temperature=0.0,
+    max_retries=2,
+    api_key="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",
+    max_tokens=2000
+)
+
+question = "인공지능에 대해 설명해주세요"
+response = groq.invoke(question, config={"callbacks":[callback_handler]}).content
+```
 {% endtab %}
 
 {% tab title="LlamaIndex" %}
@@ -85,14 +110,16 @@ soon
 
 ### 결과물 확인
 
-{% embed url="https://langshark.smileshark.help/project/cm0ukgugn0002tk69g52olded/traces/574313c3-245e-472d-b100-2be556ecbc40" %}
+{% embed url="https://langshark.smileshark.help/project/cm0ukgugn0002tk69g52olded/traces/9af49908-9020-4c79-a020-3de291537987" %}
 
-#### 트레이스 상세에 로깅 레벨이 추가된 것을 확인할 수 있습니다.
+#### 트레이스 상세에 태그가 추가된 것을 확인할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
-#### 이후 트레이스에서 로그를 조건값으로 확인할 수 있게 됩니다.
+#### 이후 트레이스에서 태그를 조건값으로 확인할 수 있게 됩니다.
 
-다음과 같이 에러가 발생한 체인을 식별할 수 있습니다.
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+태그는 UI에서도 수동으로 추가할 수 있습니다.
+
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>

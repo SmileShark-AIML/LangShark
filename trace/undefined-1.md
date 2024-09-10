@@ -1,10 +1,10 @@
-# 유저
+# 세션
 
-LangShark는 모든 사용자에대한 Overview를 제공합니다. 또한 개별 사용자에 대한 디테일도 확인할 수 있습니다.
+LLM애플리케이션에서의 상호작용은 수많은 트레이스에 걸쳐있게 됩니다. LangShark는 이런 추적을 그룹화하고 전체 상호작용에 대한 추적구성을 세션으로 확인할 수 있습니다.
 
-LangShark에서 개별 유저를 매핑하려면, 단순히 userId에 고유 식별자를 전달하기만 하면 됩니다.
+트레이스를 생성하거나 업데이트 할때 sessionId만 추가하세요, 나머지는 LangShark가 자동으로 추적합니다.
 
-이후 자동으로 트레이싱되며, UserId는 선택사항이지만 운영과정에 있어 많은것을 얻는데 도움이 됩니다.
+sessionId는 세션을 식별하는데 사용할 수 있는 모든 문자열을 사용할 수 있습니다.
 
 ### 예제
 
@@ -34,9 +34,9 @@ import json
 @observe()
 def generation():
 
-    # 여기에 UserID를 매핑할 수 있습니다.
+    # 여기세션을 추가할 수 있습니다.
     langfuse_context.update_current_trace(
-        user_id="example_user"
+        session_id="example-session-id"
     )
 
     api_key = "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"
@@ -66,12 +66,48 @@ def groq_invoke():
 
 groq_invoke()
 ```
+
+세션을 활용하여 트레이스가 그룹화 되는지 확인하기위해 한번더 호출하겠습니다.
+
+```
+groq_invoke()
+```
 {% endtab %}
 
 {% tab title="LangChain" %}
+```notebook-python
+pip install -q langfuse langchain langchain_groq
+```
+
 ```python
-message = "hello world"
-print(message)
+import os
+
+os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+```
+
+```python
+from langfuse.callback import CallbackHandler
+
+callback_handler = CallbackHandler(
+    sample_rate=0.5
+)
+```
+
+```python
+from langchain_groq import ChatGroq
+
+groq = ChatGroq(
+    model="llama-3.1-70b-versatile",
+    temperature=0.0,
+    max_retries=2,
+    api_key="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",
+    max_tokens=2000
+)
+
+question = "인공지능에 대해 설명해주세요"
+response = groq.invoke(question, config={"callbacks":[callback_handler]}).content
 ```
 {% endtab %}
 
@@ -82,22 +118,12 @@ soon
 {% endtab %}
 {% endtabs %}
 
-### 결과물 확인
+### 세션 확인
 
-{% embed url="https://langshark.smileshark.help/project/cm0ukgugn0002tk69g52olded/traces/a0bfdc9d-866d-4690-9915-9cac7a926d49" %}
+트레이스는 2개가 생성되었고, 세션탭 확인시 동일 세션에 2개 트레이스가 그룹화된것을 확인할 수 있습니다.
 
-#### 트레이스 상세에 유저ID가 매핑된 것을 확인할 수 있습니다.
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-#### 유저 탭 이동시 유저별 조회도 가능합니다.
-
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
-
-#### 유저 상세에서는 Overview, Trace등을 그룹으로 확인할 수 있습니다.
-
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
-
-#### 이후 트레이스에서 UserID등을 조건값으로 확인할 수 있게 됩니다.
-
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
