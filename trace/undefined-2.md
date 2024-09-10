@@ -119,8 +119,8 @@ soon
 
 #### 트레이스 상세에 메타데이터가 추가된 것을 확인할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 #### 이후 트레이스에서 메타데이터를 조건값으로 확인할 수 있게 됩니다.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>

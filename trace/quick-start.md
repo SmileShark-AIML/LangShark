@@ -124,4 +124,4 @@ soon
 
 {% embed url="https://langshark.smileshark.help/project/cm0ukgugn0002tk69g52olded/traces/bc7ebccf-2bbc-4349-964e-fa33389a3c5a" %}
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

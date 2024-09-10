@@ -8,15 +8,15 @@
 
 "새로운 조직 생성"을 통해 조직을 생성합니다.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 조직이름을 설정합니다.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 멤버를 초대합니다. 이때 조직내 롤을 설정할 수 있습니다. 롤 선택시 Scope를 확인할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 프로젝트 이름을 설정합니다. 조직내 여러 프로젝트 생성이 가능함을 인지합니다.
 
