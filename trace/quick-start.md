@@ -16,9 +16,7 @@ LangShark는 모든 LLM통합을 위한 Native Python Decorator,
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-{% embed url="https://colab.research.google.com/drive/1ZnY9qaKoqa2z3n_iVWSItYwkbQu-v2nO?usp=sharing" %}
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>LangChain</td><td></td><td></td><td></td><td><a href="https://colab.research.google.com/drive/1ZnY9qaKoqa2z3n_iVWSItYwkbQu-v2nO?usp=sharing">https://colab.research.google.com/drive/1ZnY9qaKoqa2z3n_iVWSItYwkbQu-v2nO?usp=sharing</a></td></tr><tr><td>LlamaIndex</td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Native Python Decorator</td><td></td><td></td><td></td><td><a href="../.gitbook/assets/pHxeJONxIv51qQsN2ac5nX3shPEmiSlKtGVATZXUE22NHGyw9v7_Aqto6aSoCU9ODz3RKtTKCEP0E0OI7TlxMQ.webp">pHxeJONxIv51qQsN2ac5nX3shPEmiSlKtGVATZXUE22NHGyw9v7_Aqto6aSoCU9ODz3RKtTKCEP0E0OI7TlxMQ.webp</a></td><td><a href="https://colab.research.google.com/drive/1ZnY9qaKoqa2z3n_iVWSItYwkbQu-v2nO?usp=sharing">https://colab.research.google.com/drive/1ZnY9qaKoqa2z3n_iVWSItYwkbQu-v2nO?usp=sharing</a></td></tr><tr><td>LangChain</td><td></td><td></td><td></td><td><a href="../.gitbook/assets/img.png">img.png</a></td><td></td></tr></tbody></table>
 
 ```
  pip install langfuse langchain_aws
