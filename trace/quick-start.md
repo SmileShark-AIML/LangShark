@@ -16,8 +16,69 @@ LangShark는 모든 LLM통합을 위한 Native Python Decorator,
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Native Python Decorator</td><td></td><td></td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td><td><a href="https://colab.research.google.com/drive/1ZnY9qaKoqa2z3n_iVWSItYwkbQu-v2nO?usp=sharing">https://colab.research.google.com/drive/1ZnY9qaKoqa2z3n_iVWSItYwkbQu-v2nO?usp=sharing</a></td></tr><tr><td>LangChain</td><td></td><td></td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td><td></td></tr><tr><td>LlamaIndex</td><td></td><td></td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 
+{% tabs %}
+{% tab title="Python Decorator" %}
+{% code fullWidth="true" %}
+```python
+!pip install langfuse
 ```
- pip install langfuse langchain_aws
+{% endcode %}
+
+```python
+import os
+
+os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
 ```
+
+```python
+from langfuse.decorators import observe
+
+@observe()
+def generation():
+    api_key = "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"
+    url = "https://api.groq.com/openai/v1/chat/completions"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
+
+    data = {
+        "model": "llama-3.1-70b-versatile",
+        "messages": [
+            {"role": "system", "content": "당신은 유용한 어시스턴트입니다. 한국어로 대답하세요."},
+            {"role": "user", "content": "인공지능에 대해 간단히 설명해주세요."}
+        ],
+        "temperature": 1.0
+    }
+
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    generated_text = response.json()['choices'][0]['message']['content']
+    return generated_text
+
+@observe()
+def groq_invoke():
+    return generation()
+
+groq_invoke()
+```
+{% endtab %}
+
+{% tab title="LangChain" %}
+```python
+message = "hello world"
+print(message)
+```
+{% endtab %}
+
+{% tab title="LlamaIndex" %}
+```ruby
+message = "hello world"
+puts messa
+```
+{% endtab %}
+{% endtabs %}
