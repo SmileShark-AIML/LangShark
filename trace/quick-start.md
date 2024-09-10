@@ -2,7 +2,7 @@
 
 이 퀵스타트 가이드는 LLM애플리케이션을 얼마나 쉽게 LangShark와 통합할 수 있는지 안내하고있습니다.
 
-#### 프로젝트를 생성하세요
+## 프로젝트를 생성하세요
 
 1. [회원가입을 진행합니다.](../getstarted/sign-in.md)
 2. [조직을 설정합니다.](../getstarted/undefined.md)
@@ -18,7 +18,7 @@ Password: exampleexample
 [https://langshark.smileshark.help/](https://langshark.smileshark.help/)
 {% endhint %}
 
-#### LangShark를 사용하여 첫번째 로그를 확인해보세요.
+## LangShark를 사용하여 첫번째 로그를 확인해보세요.
 
 LangShark는 모든 LLM통합을 위한 Native Python Decorator,
 
@@ -89,5 +89,11 @@ soon
 ```
 {% endtab %}
 {% endtabs %}
+
+## 로그를 확인해보세요
+
+[예시 프로젝트](quick-start.md#undefined)를 확인하여 실제로 어떻게 로그와 트레이스가 수집되었는지 확인해보세요
+
+{% embed url="https://langshark.smileshark.help/project/cm0ukgugn0002tk69g52olded/traces/bc7ebccf-2bbc-4349-964e-fa33389a3c5a" %}
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
