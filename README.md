@@ -1,6 +1,8 @@
 # LangShark
 
-#### LangShark는 LLM 애플리케이션을 디버깅하고 분석, 반복하는데 활용할 수 있는 LLM 옵저버빌리티 엔지니어링 플랫폼입니다.
+#### LangShark는 LLM 애플리케이션을 디버깅하고 분석, 반복하는데 활용할 수 있는
+
+#### "LLM Observability" 엔지니어링 플랫폼입니다.
 
 <figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
