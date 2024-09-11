@@ -95,4 +95,4 @@ soon
 
 다음과 같이 에러가 발생한 체인을 식별할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

@@ -30,7 +30,7 @@
 ## 모니터링 <a href="#monitoring" id="monitoring"></a>
 
 * [Overview](monitoring/overview.md)
-* [일일지표API](monitoring/api.md)
+* [일일 지표API](monitoring/api.md)
 
 ## 사용량 / 비용관리 <a href="#usageandcost" id="usageandcost"></a>
 
