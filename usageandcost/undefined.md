@@ -29,7 +29,7 @@ def anthropic_completion(**kwargs):
   kwargs_clone = kwargs.copy()
   input = kwargs_clone.pop('messages', None)
   model = kwargs_clone.pop('model', None)
-  langfuse_context.update_current_observation(
+  langshark_context.update_current_observation(
       input=input,
       model=model,
       metadata=kwargs_clone
@@ -37,7 +37,7 @@ def anthropic_completion(**kwargs):
  
   response = anthopic_client.messages.create(**kwargs)
  
-  langfuse_context.update_current_observation(
+  langshark_context.update_current_observation(
       usage={
           "input": response.usage.input_tokens,
           "output": response.usage.output_tokens,

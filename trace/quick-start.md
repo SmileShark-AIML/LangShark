@@ -4,9 +4,9 @@
 
 ### 프로젝트를 생성하세요.
 
-1. [회원가입을 진행합니다.](../getstarted/sign-in.md)
-2. [조직을 설정합니다.](../getstarted/undefined.md)
-3. [프로젝트를 설정하여 API키를 생성합니다.](../getstarted/undefined-1.md)
+1. [회원가입을 진행합니다.](../getstart/sign-in.md)
+2. [조직을 설정합니다.](../getstart/organization.md)
+3. [프로젝트를 설정하여 API키를 생성합니다.](../getstart/project.md)
 
 {% hint style="info" %}
 계정이 없다면 다음 Example Account를 사용해보세요.
@@ -30,22 +30,21 @@ LangShark는 모든 LLM통합을 위한 Native Python Decorator,
 
 {% tabs %}
 {% tab title="Python Decorator" %}
-{% code fullWidth="true" %}
-```sh
-pip install langfuse
 ```
-{% endcode %}
+!pip install -q https://github.com/SmileShark-AIML/LangShark/raw/main/langshark-0.2.0-py3-none-any.whl
+```
 
 ```python
 import os
 
-os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
-os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
-os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+# Langshark 설정
+os.environ["LANGSHARK_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGSHARK_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGSHARK_HOST"] = "https://langshark.smileshark.help"
 ```
 
 ```python
-from langfuse.decorators import observe
+from langshark.decorators import observe
 
 @observe()
 def generation():
@@ -80,19 +79,24 @@ groq_invoke()
 
 {% tab title="LangChain" %}
 ```python
-pip install langfuse langchain_groq
+pip install langchain_groq
+```
+
+```
+!pip install -q https://github.com/SmileShark-AIML/LangShark/raw/main/langshark-0.2.0-py3-none-any.whl
 ```
 
 ```python
 import os
 
-os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
-os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
-os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+# Langshark 설정
+os.environ["LANGSHARK_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGSHARK_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGSHARK_HOST"] = "https://langshark.smileshark.help"
 ```
 
 ```python
-from langfuse.callback import CallbackHandler
+from langshark.callback import CallbackHandler
 from langchain_groq import ChatGroq
 
 callback_handler = CallbackHandler()

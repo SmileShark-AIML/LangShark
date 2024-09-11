@@ -1,45 +1,135 @@
----
-description: >-
-  LLM애플리케이션은 체인, 에이전트(tool-use), Advanced RAG등 점점 더 복잡한 추상화를 사용하게됩니다. LangShark는
-  중첩된 추적에서 어떤일이 발생하고있는지를 파악하고 원인을 식별할 수 있습니다.
----
+# 세션
 
-# 소개
+LLM애플리케이션에서의 상호작용은 수많은 트레이스에 걸쳐있게 됩니다. LangShark는 이런 추적을 그룹화하고 전체 상호작용에 대한 추적구성을 세션으로 확인할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/overview.gif" alt=""><figcaption></figcaption></figure>
+트레이스를 생성하거나 업데이트 할때 sessionId만 추가하세요, 나머지는 LangShark가 자동으로 추적합니다.
 
-### 왜 추적을 사용해야하나요?
+sessionId는 세션을 식별하는데 사용할 수 있는 모든 문자열을 사용할 수 있습니다.
 
-* API 호출, 컨텍스트, 프롬프트, 병렬 처리 등을 포함하여 실행의 전체 컨텍스트를 캡처합니다.
-* 모델 사용 및 비용 추적
-* 사용자 피드백 수집
-* 품질이 낮은 출력물 식별
-* 미세 조정 및 테스트 데이터 세트 구축
+### 예제
 
-### Observabilty와 Trace는 어떻게 구성해야하나요?
+![](../.gitbook/assets/colab-badge.svg)
 
-LangShark의 트레이스는 다음과 같이 구성됩니다.
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td><td><a href="https://colab.research.google.com/drive/1cy2UBS0dHQjcHbpHZU4BdpY2QXYXJ_iG?usp=sharing">https://colab.research.google.com/drive/1cy2UBS0dHQjcHbpHZU4BdpY2QXYXJ_iG?usp=sharing</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td><td><a href="https://colab.research.google.com/drive/1qwuSbc7KK0TxoC3hjAInkcmK2vSJZL6P?usp=sharing">https://colab.research.google.com/drive/1qwuSbc7KK0TxoC3hjAInkcmK2vSJZL6P?usp=sharing</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td><td></td></tr></tbody></table>
 
-<figure><img src="../.gitbook/assets/langshark_o11y.drawio.png" alt=""><figcaption></figcaption></figure>
+{% tabs %}
+{% tab title="Python Decorator" %}
+```
+!pip install -q https://github.com/SmileShark-AIML/LangShark/raw/main/langshark-0.2.0-py3-none-any.whl
+```
 
-#### Trace
+```python
+import os
 
-일반적으로 단일 요청 또는 작업을 나타냅니다. 여기에는 함수의 전체 입력 및 출력과 사용자, 세션 및 태그와 같은 요청에 대한 메타데이터가 포함됩니다.
+# Langshark 설정
+os.environ["LANGSHARK_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGSHARK_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGSHARK_HOST"] = "https://langshark.smileshark.help"
+```
 
-#### Observation
+```python
+from langshark.decorators import observe, langshark_context
+import requests
+import json
 
-각 추적에는 실행의 개별 단계를 기록하는 여러 개의 추적이 포함될 수 있습니다 .관찰에는 여러 유형이 있습니다.
+@observe()
+def generation():
 
-#### Event
+    # 여기세션을 추가할 수 있습니다.
+    langshark_context.update_current_trace(
+        session_id="example-session-id"
+    )
 
-기본 빌딩 블록입니다. 추적에서 개별 이벤트를 추적하는 데 사용됩니다.
+    api_key = "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"
+    url = "https://api.groq.com/openai/v1/chat/completions"
 
-#### Span
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {api_key}"
+    }
 
-추적에서 작업 단위의 기간을 나타냅니다.
+    data = {
+        "model": "llama-3.1-70b-versatile",
+        "messages": [
+            {"role": "system", "content": "당신은 유용한 어시스턴트입니다. 한국어로 대답하세요."},
+            {"role": "user", "content": "인공지능에 대해 간단히 설명해주세요."}
+        ],
+        "temperature": 1.0
+    }
 
-#### Generation
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    generated_text = response.json()['choices'][0]['message']['content']
+    return generated_text
 
-AI 모델의 생성물(결과)를 기록하는 데 사용되는 스팬입니다. \
-여기에는 모델, 프롬프트 및 완료에 대한 추가 속성이 포함됩니다.\
-토큰 사용 및 비용이 자동으로 계산됩니다.
+@observe()
+def groq_invoke():
+    return generation()
+
+groq_invoke()
+```
+
+세션을 활용하여 트레이스가 그룹화 되는지 확인하기위해 한번더 호출하겠습니다.
+
+```
+groq_invoke()
+```
+{% endtab %}
+
+{% tab title="LangChain" %}
+```notebook-python
+pip install -q langchain langchain_groq
+```
+
+```
+!pip install -q https://github.com/SmileShark-AIML/LangShark/raw/main/langshark-0.2.0-py3-none-any.whl
+```
+
+```python
+import os
+
+# Langshark 설정
+os.environ["LANGSHARK_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGSHARK_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGSHARK_HOST"] = "https://langshark.smileshark.help"
+```
+
+```python
+from langshark.callback import CallbackHandler
+
+callback_handler = CallbackHandler(
+    sample_rate=0.5
+)
+```
+
+```python
+from langchain_groq import ChatGroq
+
+groq = ChatGroq(
+    model="llama-3.1-70b-versatile",
+    temperature=0.0,
+    max_retries=2,
+    api_key="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",
+    max_tokens=2000
+)
+
+question = "인공지능에 대해 설명해주세요"
+response = groq.invoke(question, config={"callbacks":[callback_handler]}).content
+```
+{% endtab %}
+
+{% tab title="LlamaIndex" %}
+```ruby
+soon
+```
+{% endtab %}
+{% endtabs %}
+
+### 세션 확인
+
+트레이스는 2개가 생성되었고, 세션탭 확인시 동일 세션에 2개 트레이스가 그룹화된것을 확인할 수 있습니다.
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

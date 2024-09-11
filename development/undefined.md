@@ -76,19 +76,20 @@ LangShark의 프롬프트는 다음과 같은 오브젝트로 구성될 수 있�
 ```python
 import os
 
-os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
-os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
-os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+# Langshark 설정
+os.environ["LANGSHARK_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGSHARK_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGSHARK_HOST"] = "https://langshark.smileshark.help"
 ```
 
 텍스트 프롬프트는 다음과 같이 생성합니다.
 
 ```python
-from langfuse import Langfuse
+from langshark import Langshark
 
-langfuse = Langfuse()
+langshark = Langshark()
 
-langfuse.create_prompt(
+langshark.create_prompt(
     name="movie-critic",
     type="text",
     prompt="너는 이 영화 좋아하니? 영화제목은 다음과 같아 : {{movie}}?",
@@ -104,7 +105,7 @@ langfuse.create_prompt(
 채팅 프롬프트는 다음과 같이 생성합니다.
 
 ```python
-langfuse.create_prompt(
+langshark.create_prompt(
     name="movie-critic-chat",
     type="chat",
     prompt=[{"role": "system", "content": "너는 영화 비평가야. 그리고 이 영화에 대해 전문가야 : {{movie}}"}],
@@ -126,19 +127,19 @@ langfuse.create_prompt(
 {% tabs %}
 {% tab title="Python" %}
 ```python
-from langfuse import Langfuse
+from langshark import Langshark
 
-langfuse = Langfuse()
+langshark = Langshark()
 
 # text prompt
-prompt = langfuse.get_prompt("movie-critic")
+prompt = langshark.get_prompt("movie-critic")
 compiled_prompt = prompt.compile(movie="Dune 2")
 compiled_prompt
 ```
 
 ```python
 # chat prompt
-chat_prompt = langfuse.get_prompt("movie-critic-chat")
+chat_prompt = langshark.get_prompt("movie-critic-chat")
 compiled_chat_prompt = chat_prompt.compile(movie="Dune 2")
 compiled_chat_prompt
 ```
@@ -146,22 +147,22 @@ compiled_chat_prompt
 
 {% tab title="LangChain" %}
 ```python
-from langfuse import Langfuse
+from langshark import Langshark
 from langchain_core.prompts import ChatPromptTemplate
 
-langfuse = Langfuse()
+langshark = Langshark()
 
 # text prompt
 
-langfuse_prompt = langfuse.get_prompt("movie-critic")
-langchain_prompt = ChatPromptTemplate.from_template(langfuse_prompt.get_langchain_prompt())
+langshark_prompt = langshark.get_prompt("movie-critic")
+langchain_prompt = ChatPromptTemplate.from_template(langshark_prompt.get_langchain_prompt())
 langchain_prompt
 ```
 
 ```python
 # chat prompt
-langfuse_prompt = langfuse.get_prompt("movie-critic-chat")
-langchain_prompt = ChatPromptTemplate.from_messages(langfuse_prompt.get_langchain_prompt())
+langshark_prompt = langshark.get_prompt("movie-critic-chat")
+langchain_prompt = ChatPromptTemplate.from_messages(langshark_prompt.get_langchain_prompt())
 langchain_prompt
 ```
 {% endtab %}
@@ -171,13 +172,13 @@ langchain_prompt
 
 ```python
 # 특정 버전 가져오기
-prompt = langfuse.get_prompt("movie-critic", version=1)
+prompt = langshark.get_prompt("movie-critic", version=1)
  
 # 특정 라벨 가져오기
-prompt = langfuse.get_prompt("movie-critic", label="staging")
+prompt = langshark.get_prompt("movie-critic", label="staging")
  
 # 최신 프롬프트 가져오기
-prompt = langfuse.get_prompt("movie-critic", label="latest")
+prompt = langshark.get_prompt("movie-critic", label="latest")
 ```
 
 ### &#xD;

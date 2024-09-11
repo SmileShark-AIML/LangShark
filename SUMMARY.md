@@ -2,22 +2,22 @@
 
 * [LangShark](README.md)
 
-## 시작하기 <a href="#getstarted" id="getstarted"></a>
+## 시작하기 <a href="#getstart" id="getstart"></a>
 
-* [회원가입](getstarted/sign-in.md)
-* [조직 설정](getstarted/undefined.md)
-* [프로젝트 설정](getstarted/undefined-1.md)
+* [회원가입](getstart/sign-in.md)
+* [조직 설정](getstart/organization.md)
+* [프로젝트 설정](getstart/project.md)
 
 ## 트레이싱 <a href="#trace" id="trace"></a>
 
-* [소개](trace/undefined.md)
+* [소개](trace/overview.md)
 * [Quick-Start](trace/quick-start.md)
-* [세션](trace/undefined-1.md)
-* [유저](trace/undefined-2.md)
-* [메타데이터](trace/undefined-3.md)
-* [태그](trace/undefined-4.md)
-* [로깅 레벨](trace/undefined-5.md)
-* [샘플링](trace/undefined-6.md)
+* [세션](trace/undefined.md)
+* [유저](trace/undefined-1.md)
+* [메타데이터](trace/undefined-2.md)
+* [태그](trace/undefined-3.md)
+* [로깅 레벨](trace/undefined-4.md)
+* [샘플링](trace/undefined-5.md)
 
 ## 개발 <a href="#development" id="development"></a>
 

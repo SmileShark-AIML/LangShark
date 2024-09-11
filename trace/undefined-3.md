@@ -1,42 +1,39 @@
-# 메타데이터
+# 태그
 
-LangShark는 추적 및 관찰하는데에 있어 메타데이터를 추가할 수 있습니다.
-
-메타데이터는 임의의 JSON형태로 트레이스에 추가할 수 있습니다.
+태그를 활용하면 트레이스를 분류하고 필터링 할 수 있습니다. 태그는 문자열로 구성되며 한개의 트레이스에는 여러개의 태그를 설정할 수 있습니다.
 
 ### 예제
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="https://colab.research.google.com/drive/1N_vHPLG61VlmLd3u6dSFNyE7yRu8nuRw?usp=sharing">https://colab.research.google.com/drive/1N_vHPLG61VlmLd3u6dSFNyE7yRu8nuRw?usp=sharing</a></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="https://colab.research.google.com/drive/1HeJ8T0O_PRiRERmdYI6tEr4QvJ59Sz4_?usp=sharing">https://colab.research.google.com/drive/1HeJ8T0O_PRiRERmdYI6tEr4QvJ59Sz4_?usp=sharing</a></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td><td><a href="https://colab.research.google.com/drive/1ai1m3cmobLDqsb6hxGIaiMLNW-cjw2EC?usp=sharing">https://colab.research.google.com/drive/1ai1m3cmobLDqsb6hxGIaiMLNW-cjw2EC?usp=sharing</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td><td><a href="https://colab.research.google.com/drive/1QzpH-cruZ7w_pJQ67K76ERM7FfB4SYBy?usp=sharing">https://colab.research.google.com/drive/1QzpH-cruZ7w_pJQ67K76ERM7FfB4SYBy?usp=sharing</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td><td></td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Python Decorator" %}
 ```python
-pip install -q langfuse boto3
+!pip install -q https://github.com/SmileShark-AIML/LangShark/raw/main/langshark-0.2.0-py3-none-any.whl
 ```
 
 ```python
 import os
 
-os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
-os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
-os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+# Langshark 설정
+os.environ["LANGSHARK_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGSHARK_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGSHARK_HOST"] = "https://langshark.smileshark.help"
 ```
 
 ```python
-from langfuse.decorators import observe, langfuse_context
+from langshark.decorators import observe, langshark_context
 import requests
 import json
 
 @observe()
 def generation():
 
-    # 여기에 메타데이터를 추가할 수 있습니다.
-    langfuse_context.update_current_trace(
-        metadata={
-            "key": "value"
-        }
+    # 여기에 태그를 설정할 수 있습니다.
+    langshark_context.update_current_trace(
+        tags=["tag-1", "tag-2"]
     )
 
     api_key = "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"
@@ -70,22 +67,27 @@ groq_invoke()
 
 {% tab title="LangChain" %}
 ```python
-pip install -q langfuse langchain langchain_groq
+pip install -q langchain langchain_groq
+```
+
+```
+!pip install -q https://github.com/SmileShark-AIML/LangShark/raw/main/langshark-0.2.0-py3-none-any.whl
 ```
 
 ```python
 import os
 
-os.environ["LANGFUSE_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
-os.environ["LANGFUSE_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
-os.environ["LANGFUSE_HOST"] = "https://langshark.smileshark.help"
+# Langshark 설정
+os.environ["LANGSHARK_SECRET_KEY"] = "sk-lf-b24f1ed3-10a0-400d-9975-07047d16a028"
+os.environ["LANGSHARK_PUBLIC_KEY"] = "pk-lf-d20eea6c-da94-45ac-9e18-548dee6f47ae"
+os.environ["LANGSHARK_HOST"] = "https://langshark.smileshark.help"
 ```
 
 ```python
-from langfuse.callback import CallbackHandler
+from langshark.callback import CallbackHandler
 
 callback_handler = CallbackHandler(
-    metadata={"key":"value"}
+    tags=["tag-1", "tag-2"]
 )
 ```
 
@@ -101,8 +103,7 @@ groq = ChatGroq(
 )
 
 question = "인공지능에 대해 설명해주세요"
-
-response = groq.invoke(question, config={"callbacks":[callback_handler]}).contentresponse
+response = groq.invoke(question, config={"callbacks":[callback_handler]}).content
 ```
 {% endtab %}
 
@@ -115,12 +116,16 @@ soon
 
 ### 결과물 확인
 
-{% embed url="https://langshark.smileshark.help/project/cm0ukgugn0002tk69g52olded/traces/12993bd0-a542-446a-9d4a-c472efde2df3" %}
+{% embed url="https://langshark.smileshark.help/project/cm0ukgugn0002tk69g52olded/traces/9af49908-9020-4c79-a020-3de291537987" %}
 
-#### 트레이스 상세에 메타데이터가 추가된 것을 확인할 수 있습니다.
+#### 트레이스 상세에 태그가 추가된 것을 확인할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
-#### 이후 트레이스에서 메타데이터를 조건값으로 확인할 수 있게 됩니다.
+#### 이후 트레이스에서 태그를 조건값으로 확인할 수 있게 됩니다.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+태그는 UI에서도 수동으로 추가할 수 있습니다.
+
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
