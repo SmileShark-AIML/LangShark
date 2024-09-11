@@ -12,7 +12,7 @@
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="https://colab.research.google.com/drive/1ZcR1WaQvlmcSX5fzV-GS73xP3nDrKTzc?usp=sharing">https://colab.research.google.com/drive/1ZcR1WaQvlmcSX5fzV-GS73xP3nDrKTzc?usp=sharing</a></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="https://colab.research.google.com/drive/13FuMybfa091Nf0zxCpYXHdeG9X7IfBCS?usp=sharing">https://colab.research.google.com/drive/13FuMybfa091Nf0zxCpYXHdeG9X7IfBCS?usp=sharing</a></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Python Decorator" %}

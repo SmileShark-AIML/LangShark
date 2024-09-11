@@ -10,7 +10,7 @@ sessionId는 세션을 식별하는데 사용할 수 있는 모든 문자열을 
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td><td><a href="https://colab.research.google.com/drive/1cy2UBS0dHQjcHbpHZU4BdpY2QXYXJ_iG?usp=sharing">https://colab.research.google.com/drive/1cy2UBS0dHQjcHbpHZU4BdpY2QXYXJ_iG?usp=sharing</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td><td><a href="https://colab.research.google.com/drive/1qwuSbc7KK0TxoC3hjAInkcmK2vSJZL6P?usp=sharing">https://colab.research.google.com/drive/1qwuSbc7KK0TxoC3hjAInkcmK2vSJZL6P?usp=sharing</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td><td></td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Python Decorator" %}

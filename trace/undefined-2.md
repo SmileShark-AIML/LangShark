@@ -10,7 +10,7 @@ LangShark에서 개별 유저를 매핑하려면, 단순히 userId에 고유 식
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td><td><a href="https://colab.research.google.com/drive/18eaikKzYRpYEppQUY489yNq8XrAJR2ts?usp=sharing">https://colab.research.google.com/drive/18eaikKzYRpYEppQUY489yNq8XrAJR2ts?usp=sharing</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td><td><a href="https://colab.research.google.com/drive/1zCmP30SoCDtQAHMuNLqGwaCCowWT2vJK?usp=sharing">https://colab.research.google.com/drive/1zCmP30SoCDtQAHMuNLqGwaCCowWT2vJK?usp=sharing</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td><td></td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Python Decorator" %}

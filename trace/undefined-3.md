@@ -8,7 +8,7 @@ LangShark는 추적 및 관찰하는데에 있어 메타데이터를 추가할 �
 
 ![](../.gitbook/assets/colab-badge.svg)
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Python Decorator</td><td></td><td><a href="https://colab.research.google.com/drive/1N_vHPLG61VlmLd3u6dSFNyE7yRu8nuRw?usp=sharing">https://colab.research.google.com/drive/1N_vHPLG61VlmLd3u6dSFNyE7yRu8nuRw?usp=sharing</a></td><td><a href="../.gitbook/assets/python(3).png">python(3).png</a></td></tr><tr><td></td><td>LangChain</td><td></td><td><a href="https://colab.research.google.com/drive/1HeJ8T0O_PRiRERmdYI6tEr4QvJ59Sz4_?usp=sharing">https://colab.research.google.com/drive/1HeJ8T0O_PRiRERmdYI6tEr4QvJ59Sz4_?usp=sharing</a></td><td><a href="../.gitbook/assets/1_MVJZLfszGGNiJ-UFK4U31A.png">1_MVJZLfszGGNiJ-UFK4U31A.png</a></td></tr><tr><td></td><td>LlamaIndex (soon)</td><td></td><td></td><td><a href="../.gitbook/assets/eyecatch-llamdaindex.webp">eyecatch-llamdaindex.webp</a></td></tr></tbody></table>
 
 {% tabs %}
 {% tab title="Python Decorator" %}
