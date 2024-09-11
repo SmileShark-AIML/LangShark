@@ -20,9 +20,9 @@
 
 프로젝트 이름을 설정합니다. 조직내 여러 프로젝트 생성이 가능함을 인지합니다.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 애플리케이션 로깅/트레이싱에 활용될 API가 출력됩니다.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 

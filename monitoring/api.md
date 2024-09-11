@@ -23,7 +23,7 @@
 * `fromTimestamp`: 시작 날짜/시간
 * `toTimestamp`: 종료 날짜/시간
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### 호출 예시
 

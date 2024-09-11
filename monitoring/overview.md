@@ -1,6 +1,6 @@
 # Overview
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 Langshark는 LLM에서 생산되는 데이터를 수집하여 인사이트를 제공합니다.
 

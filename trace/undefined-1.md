@@ -122,7 +122,7 @@ soon
 
 트레이스는 2개가 생성되었고, 세션탭 확인시 동일 세션에 2개 트레이스가 그룹화된것을 확인할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
