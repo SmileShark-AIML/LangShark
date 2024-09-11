@@ -44,21 +44,21 @@ AI 기술은 빠르게 발전하고 있어 모델을 지속적으로 개선해�
 
 * [애플리케이션에서 호출되는 모든 LLM호출 및 관련 로직 추적](broken-reference)
 * [Python용 SDK](broken-reference)
-* [Python 용 @Observe 데코레이터](broken-reference)
-* [LangChain(Graph)](broken-reference),[ LlamaIndex등에 대한 통합](broken-reference)
+* [Python 용 @Observe 데코레이터](trace/quick-start.md)
+* [LangChain(Graph)](example/langchain.md), LlamaIndex등에 대한 통합
 * [API 제공](monitoring/api.md)
 
 ### LangChain 대시보드
 
 복잡한 로그 및 유저, 세션 및 디버깅
 
-* [지표 (LLM비용, 대기시간, 품질 등)추적을 통한 인사이트](usageandcost/undefined.md)
-* [LLM 생성물에 대한 점수를 수집하고 계산(평가)](evaluation/llm-as-a-judge.md)
+* [지표 (LLM비용, 대기시간, 품질 등)추적을 통한 인사이트](usageandcost/usageandcost.md)
+* [LLM 생성물에 대한 점수를 수집하고 계산(평가)](evaluation/evaluation.md)
 
 ## 프롬프트 관리
 
 LangShark 내에서 프롬프트를 관리합니다.
 
-* [프롬프트 관리 및 형상관리를 위한 Hub](broken-reference)
+* [프롬프트 관리 및 형상관리를 위한 Hub](development/prompt.md)
 * [LLM과 쉬운 통합을 위한 Configuration 관리](./#undefined-7)
 
